@@ -1,0 +1,84 @@
+{
+ "abilities": [
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_ExtraAttack",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_SpecialMove",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_MoonLight",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_ElementalArt",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_ElementalArt_Click",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_ElementalArt_Hold",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_ElementalBurst",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_FallingAnthem",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_Show",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_Frostmoon_Humanities",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_OtherLogic",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_Attack01",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_Attack02",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_Attack03",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Lauma_ExtraAttack_Damage",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_NewElementReaction_Preload_MoonOvergrow",
+   "abilityOverride": ""
+  }
+ ]
+}

@@ -1,0 +1,490 @@
+{
+  "points": {
+    "1": {
+      "$type": "PersonalSceneJumpPoint",
+      "gadgetId": 70010002,
+      "pos": {
+        "y": 0.20828869938850403,
+        "z": 14.39404010772705
+      },
+      "tranPos": {
+        "x": 2243.9951171875,
+        "y": 238.7061004638672,
+        "z": -780.5136108398438
+      },
+      "tranRot": {
+        "y": 161.0
+      },
+      "unlocked": true,
+      "specialTipsIconPath": "",
+      "tranSceneId": 3,
+      "titleTextID": "UI_SCENE_ENTRY_EXIT_KNIGHT",
+      "triggerSize": {
+        "x": 3.0,
+        "y": 3.0,
+        "z": 3.0
+      },
+      "closeTime": 24.0
+    },
+    "2": {
+      "$type": "DungeonEntry",
+      "gadgetId": 70350510,
+      "pos": {
+        "x": -12.055299758911133,
+        "y": -3.7771658897399902,
+        "z": -0.016344880685210228
+      },
+      "rot": {
+        "y": 270.0
+      },
+      "tranPos": {
+        "x": -15.253083229064941,
+        "y": -4.909999847412109,
+        "z": -8.940696716308594e-08
+      },
+      "tranRot": {
+        "y": 90.0
+      },
+      "specialTipsIconPath": "",
+      "portalShape": "",
+      "dungeonIds": [
+        156
+      ],
+      "dungeonQuestConditionList": {},
+      "size": {
+        "x": 4.0,
+        "y": 4.0,
+        "z": 4.0
+      },
+      "titleTextID": "UI_STC_Intee_RoleCombatEntry",
+      "inteeIcon": "UI_Icon_Intee_Talk",
+      "dungeonEntryType": "RoleCombat"
+    },
+    "3": {
+      "$type": "DungeonExit",
+      "gadgetId": 70010002,
+      "pos": {
+        "x": -15.419210433959961,
+        "y": -4.975887775421143,
+        "z": 0.08949215710163116
+      },
+      "rot": {
+        "y": 270.0
+      },
+      "tranPos": {
+        "x": -15.419210433959961,
+        "y": -4.975887775421143,
+        "z": 0.08949235826730728
+      },
+      "tranRot": {
+        "y": 270.0
+      },
+      "unlocked": true,
+      "specialTipsIconPath": "",
+      "entryPointId": 2
+    },
+    "10": {
+      "$type": "EJKBNAAJDEP",
+      "DOGKCBHGFAG": 9,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 171.4024,
+        "z": 0
+      },
+      "pos": {
+        "x": 12.85633,
+        "y": 0.009999197,
+        "z": 8.813334
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": false,
+      "MPPBCFKHGHA": false,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": 12.85633,
+        "y": 0.009999197,
+        "z": 8.813334
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 70010001,
+      "rot": {
+        "x": 0,
+        "y": 171.4024,
+        "z": 0
+      }
+    },
+    "11": {
+      "$type": "BIDKGIAOIJE",
+      "DKKNIBFMMBA": [],
+      "FOCEDOLNOLG": [],
+      "HHKLHDILHPA": "UI_DUNGEON_ENTRY_1004_9",
+      "PNDHKDEKAMO": "UI_Icon_Intee_Talk",
+      "PMLKAGFDCEH": [
+        1312
+      ],
+      "DFIBMCDHNPG": {
+        "DIEABDEAJDL": [],
+        "NDDAKAMKKDO": 0
+      },
+      "JANMABHPMDC": [],
+      "JAOENGDJKDM": 0,
+      "MNCDKFFPMFJ": "Normal",
+      "IHIOCMFBLDO": false,
+      "ALMFJFEECNN": true,
+      "EMMOAAHLNGE": true,
+      "FOEOMOGLJBK": 0,
+      "HKPINJIKLFI": "DirectEnter",
+      "MKHHFMFNPHG": {
+        "x": 6,
+        "y": 6,
+        "z": 6
+      },
+      "MGLHJOFMLGE": 1,
+      "FOPHEKONPDL": [],
+      "ELAKJDAMAEE": [],
+      "APCOJDMLHDK": "",
+      "JOBLDEIGNMB": false,
+      "IBCKFIMNBII": false,
+      "HIIJCKFLHOM": false,
+      "ECAEPBGHOLB": false,
+      "OODJBPMDFDD": 0,
+      "MJNAILKLGHG": 0,
+      "KLPEPPCJMFF": "Never",
+      "KEBLKNBFKKA": 1,
+      "FLLJPPMDODA": 0,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "pos": {
+        "x": 16.16969,
+        "y": 0.2099994,
+        "z": 7.341156
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": false,
+      "MPPBCFKHGHA": false,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": 15.9861,
+        "y": 0.7660021,
+        "z": 4.462677
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 70010002,
+      "rot": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      }
+    },
+    "13": {
+      "$type": "BIDKGIAOIJE",
+      "DKKNIBFMMBA": [],
+      "FOCEDOLNOLG": [],
+      "HHKLHDILHPA": "UI_STC_Intee_DungeonEntry",
+      "PNDHKDEKAMO": "UI_Icon_Intee_Talk",
+      "PMLKAGFDCEH": [
+        2205
+      ],
+      "DFIBMCDHNPG": {
+        "DIEABDEAJDL": [],
+        "NDDAKAMKKDO": 0
+      },
+      "JANMABHPMDC": [],
+      "JAOENGDJKDM": 0,
+      "MNCDKFFPMFJ": "Normal",
+      "IHIOCMFBLDO": false,
+      "ALMFJFEECNN": true,
+      "EMMOAAHLNGE": true,
+      "FOEOMOGLJBK": 0,
+      "HKPINJIKLFI": "DirectEnter",
+      "MKHHFMFNPHG": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "MGLHJOFMLGE": 1,
+      "FOPHEKONPDL": [],
+      "ELAKJDAMAEE": [],
+      "APCOJDMLHDK": "",
+      "JOBLDEIGNMB": false,
+      "IBCKFIMNBII": false,
+      "HIIJCKFLHOM": false,
+      "ECAEPBGHOLB": false,
+      "OODJBPMDFDD": 0,
+      "MJNAILKLGHG": 0,
+      "KLPEPPCJMFF": "Never",
+      "KEBLKNBFKKA": 1,
+      "FLLJPPMDODA": 0,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 89.55039,
+        "z": 0
+      },
+      "pos": {
+        "x": -16.10741,
+        "y": 0.1549034,
+        "z": 3.845615
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": false,
+      "MPPBCFKHGHA": true,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": -16.62328,
+        "y": 0.1549034,
+        "z": -3.603843
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 70360001,
+      "rot": {
+        "x": 0,
+        "y": 91.37453,
+        "z": 0
+      }
+    },
+    "14": {
+      "$type": "EJKBNAAJDEP",
+      "DOGKCBHGFAG": 13,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 89.55039,
+        "z": 0
+      },
+      "pos": {
+        "x": -16.10741,
+        "y": 0.1549034,
+        "z": 3.845615
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": false,
+      "MPPBCFKHGHA": true,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": -16.62328,
+        "y": 0.1549034,
+        "z": -3.603843
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 70010001,
+      "rot": {
+        "x": 0,
+        "y": 91.37453,
+        "z": 0
+      }
+    },
+    "15": {
+      "$type": "BIDKGIAOIJE",
+      "DKKNIBFMMBA": [],
+      "FOCEDOLNOLG": [],
+      "HHKLHDILHPA": "UI_STC_Intee_DungeonEntry",
+      "PNDHKDEKAMO": "UI_Icon_Intee_Talk",
+      "PMLKAGFDCEH": [
+        2205
+      ],
+      "DFIBMCDHNPG": {
+        "DIEABDEAJDL": [],
+        "NDDAKAMKKDO": 0
+      },
+      "JANMABHPMDC": [],
+      "JAOENGDJKDM": 0,
+      "MNCDKFFPMFJ": "Normal",
+      "IHIOCMFBLDO": false,
+      "ALMFJFEECNN": true,
+      "EMMOAAHLNGE": true,
+      "FOEOMOGLJBK": 0,
+      "HKPINJIKLFI": "DirectEnter",
+      "MKHHFMFNPHG": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "MGLHJOFMLGE": 1,
+      "FOPHEKONPDL": [],
+      "ELAKJDAMAEE": [],
+      "APCOJDMLHDK": "",
+      "JOBLDEIGNMB": false,
+      "IBCKFIMNBII": false,
+      "HIIJCKFLHOM": false,
+      "ECAEPBGHOLB": false,
+      "OODJBPMDFDD": 0,
+      "MJNAILKLGHG": 0,
+      "KLPEPPCJMFF": "Never",
+      "KEBLKNBFKKA": 1,
+      "FLLJPPMDODA": 0,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 182.6296,
+        "z": 0
+      },
+      "pos": {
+        "x": 13.366558,
+        "y": 0.1294042,
+        "z": 2.7958393
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": false,
+      "MPPBCFKHGHA": true,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": 13.36656,
+        "y": 0.1294042,
+        "z": 2.795839
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 70360001,
+      "rot": {
+        "x": 0,
+        "y": 182.6296,
+        "z": 0
+      }
+    },
+    "16": {
+      "$type": "EJKBNAAJDEP",
+      "DOGKCBHGFAG": 15,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 182.6296,
+        "z": 0
+      },
+      "pos": {
+        "x": 13.36656,
+        "y": 0.1294042,
+        "z": 2.795839
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": false,
+      "MPPBCFKHGHA": true,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": 13.36656,
+        "y": 0.1294042,
+        "z": 2.795839
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 70010001,
+      "rot": {
+        "x": 0,
+        "y": 182.6296,
+        "z": 0
+      }
+    },
+    "19": {
+      "$type": "KDEHKECBDBO",
+      "FOPHEKONPDL": [],
+      "ELAKJDAMAEE": [],
+      "APCOJDMLHDK": "",
+      "JOBLDEIGNMB": false,
+      "IBCKFIMNBII": false,
+      "HIIJCKFLHOM": false,
+      "ECAEPBGHOLB": false,
+      "OODJBPMDFDD": 0,
+      "MJNAILKLGHG": 0,
+      "KLPEPPCJMFF": "Never",
+      "KEBLKNBFKKA": 1,
+      "FLLJPPMDODA": 0,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "pos": {
+        "x": 16.3903,
+        "y": 0.009999078,
+        "z": 6.685161
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": true,
+      "MPPBCFKHGHA": false,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": 16.3903,
+        "y": 0.009999078,
+        "z": 6.685161
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 70010002,
+      "rot": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      }
+    },
+    "4": {
+      "$type": "CAENMMKPMIJ",
+      "FKHHEMDCJDN": "",
+      "FOPHEKONPDL": [],
+      "ELAKJDAMAEE": [],
+      "APCOJDMLHDK": "",
+      "JOBLDEIGNMB": true,
+      "IBCKFIMNBII": true,
+      "HIIJCKFLHOM": true,
+      "ECAEPBGHOLB": false,
+      "OODJBPMDFDD": 0,
+      "MJNAILKLGHG": 0,
+      "KLPEPPCJMFF": "Never",
+      "KEBLKNBFKKA": 1,
+      "FLLJPPMDODA": 0,
+      "BIELLMDIODE": "",
+      "HDMEDFBJMPK": 0,
+      "tranRot": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "pos": {
+        "x": -4.442169,
+        "y": 0.4737237,
+        "z": -3.1545196
+      },
+      "CEONPLGFMNI": 0,
+      "EICLDEIJGGB": true,
+      "MPPBCFKHGHA": true,
+      "NIGJGLDEKAD": false,
+      "POGLHNAHJNK": false,
+      "areaId": 0,
+      "tranPos": {
+        "x": -4.442169,
+        "y": 0.4737237,
+        "z": -3.15452
+      },
+      "MEGMIMEDODJ": "NORMAL",
+      "gadgetId": 0,
+      "rot": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

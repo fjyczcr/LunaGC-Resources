@@ -1,0 +1,39 @@
+{
+ "abilities": [
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Aino_ExtraAttack",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Aino_ElementalArt",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Aino_ElementalBurst",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Aino_FallingAnthem",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Aino_Show",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Aino_OtherLogic",
+   "abilityOverride": ""
+  },
+  {
+   "abilityID": "",
+   "abilityName": "Avatar_Aino_NormalAttackDamage",
+   "abilityOverride": ""
+  }
+ ]
+}
