@@ -11,5 +11,5 @@
 
 ---
 
-**語言版本 / Language Versions / Sprachversionen:**
+**語言版本 / Sprachversionen:**
 - [Deutsch (German)](README.de-de.md)
