@@ -12,5 +12,4 @@
 ---
 
 **Sprachversionen / Language Versions / 語言版本:**
-- [English](README.md)
-- [繁體中文 (Traditional Chinese)](README.zh-tw.md)
+- [繁體中文 (Traditional Chinese)](README.md)
