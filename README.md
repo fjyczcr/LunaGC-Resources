@@ -1,4 +1,7 @@
 # 6.7 資源
+
+- [Deutsch (German)](README.de-de.md)
+
 # 最小的基礎！
 
 # 致謝:
@@ -8,8 +11,3 @@
 - Dimbreath 也提供的資源
 - Yuuki 的資源靈感
 - iam-akuzihs 提供的資源
-
----
-
-**語言版本 / Sprachversionen:**
-- [Deutsch (German)](README.de-de.md)
