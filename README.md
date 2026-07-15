@@ -1,16 +1,15 @@
-# 6.7 resources
-# The bare minimum!
+# 6.7 資源
+# 最少的基礎！
 
-# Credits:
+# 致謝:
 
-- pmagixc & Meowereal for putting this together in 6.1.0
-- Hiro for resources
-- Dimbreath for resources as well
-- Yuuki for resource inspiration
-- iam-akuzihs for resources
+- pmagixc & Meowereal 在 6.1.0 中整理的這些
+- Hiro 提供的資源
+- Dimbreath 也提供的資源
+- Yuuki 的資源靈感
+- iam-akuzihs 提供的資源
 
 ---
 
-**Language Versions / 語言版本 / Sprachversionen:**
-- [繁體中文 (Traditional Chinese)](README.zh-tw.md)
+**語言版本 / Language Versions / Sprachversionen:**
 - [Deutsch (German)](README.de-de.md)
