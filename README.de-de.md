@@ -1,6 +1,6 @@
 # 6.7 Ressourcen
 
-- [繁體中文 (Traditional Chinese)](README.md)
+[繁體中文 (Traditional Chinese)](README.md)
 
 # Das Minimum!
 
