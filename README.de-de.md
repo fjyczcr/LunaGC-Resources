@@ -1,4 +1,7 @@
 # 6.7 Ressourcen
+
+- [繁體中文 (Traditional Chinese)](README.md)
+
 # Das Minimum!
 
 # Danksagungen:
@@ -8,8 +11,3 @@
 - Dimbreath auch für Ressourcen
 - Yuuki für Ressourceninspiration
 - iam-akuzihs für Ressourcen
-
----
-
-**Sprachversionen / Language Versions / 語言版本:**
-- [繁體中文 (Traditional Chinese)](README.md)
