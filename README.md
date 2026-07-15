@@ -1,6 +1,6 @@
 # 6.7 資源
 
-- [Deutsch (German)](README.de-de.md)
+[Deutsch (German)](README.de-de.md)
 
 # 最小的基礎！
 
