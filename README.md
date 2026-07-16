@@ -2,7 +2,7 @@
 
 [Deutsch (German)](README.de-de.md)
 
-# 最小的基礎！
+# 最小的基礎檔案！
 
 # 致謝:
 
