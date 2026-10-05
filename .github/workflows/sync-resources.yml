@@ -32,73 +32,104 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show repo root before sync
-        run: |
-          echo "当前仓库根目录:"
-          pwd
-          ls -la
-          echo "--------------------------------"
-          for d in ScriptSceneData Scripts Server; do
-            if [ -d "$d" ]; then
-              echo "$d 存在，文件数: $(find "$d" -type f | wc -l)"
-            else
-              echo "$d 不存在"
-            fi
-          done
-
       - name: Clone source repo
         env:
           SOURCE_REPO: ${{ github.event.inputs.source_repo }}
           SOURCE_BRANCH: ${{ github.event.inputs.source_branch }}
         run: |
           git clone --depth 1 --branch "$SOURCE_BRANCH" "https://github.com/$SOURCE_REPO.git" /tmp/source_repo
-          echo "源仓库根目录:"
-          ls -la /tmp/source_repo
-          echo "--------------------------------"
-          for d in ScriptSceneData Scripts Server; do
-            if [ -d "/tmp/source_repo/$d" ]; then
-              echo "$d 在源仓库中存在，文件数: $(find "/tmp/source_repo/$d" -type f | wc -l)"
-              find "/tmp/source_repo/$d" -maxdepth 2 -type f | head
-            else
-              echo "$d 不在源仓库中"
+          
+          echo "=== 源仓库内容 ==="
+          for folder in ScriptSceneData Scripts Server; do
+            if [ -d "/tmp/source_repo/$folder" ]; then
+              count=$(find "/tmp/source_repo/$folder" -type f | wc -l)
+              echo "✓ $folder: $count 个文件"
+              find "/tmp/source_repo/$folder" -type f -maxdepth 1 | head -5
             fi
           done
 
-      - name: Sync folders
+      - name: Sync folders (mirror mode)
+        if: github.event.inputs.sync_mode == 'mirror'
         run: |
           set -e
           for folder in ScriptSceneData Scripts Server; do
-            echo "处理: $folder"
             if [ -d "/tmp/source_repo/$folder" ]; then
-              if [ -d "$folder" ]; then
-                rm -rf "$folder"
-              fi
+              [ -d "$folder" ] && rm -rf "$folder"
               cp -R "/tmp/source_repo/$folder" .
-              echo "同步后 $folder 目录文件数: $(find "$folder" -type f | wc -l)"
+              echo "✓ 已复制: $folder ($(find "$folder" -type f | wc -l) 个文件)"
             else
-              echo "$folder 在源仓库中不存在"
+              [ -d "$folder" ] && rm -rf "$folder"
+              echo "✗ 源仓库中没有: $folder"
             fi
           done
 
-      - name: Check git status
+      - name: Sync folders (update mode)
+        if: github.event.inputs.sync_mode == 'update'
         run: |
-          echo "git status:"
-          git status --short
-          echo "--------------------------------"
-          git diff --stat || true
+          set -e
+          for folder in ScriptSceneData Scripts Server; do
+            if [ -d "/tmp/source_repo/$folder" ]; then
+              mkdir -p "$folder"
+              cp -R "/tmp/source_repo/$folder"/* "$folder/" 2>/dev/null || true
+              echo "✓ 已更新: $folder ($(find "$folder" -type f | wc -l) 个文件)"
+            fi
+          done
 
-      - name: Commit and push if changed
+      - name: Verify sync result
+        run: |
+          echo "=== 同步结果验证 ==="
+          git status
+          echo ""
+          echo "本地目录文件统计:"
+          for folder in ScriptSceneData Scripts Server; do
+            if [ -d "$folder" ]; then
+              count=$(find "$folder" -type f | wc -l)
+              echo "- $folder: $count 个文件"
+            else
+              echo "- $folder: 不存在"
+            fi
+          done
+
+      - name: Commit and push
         env:
           SOURCE_REPO: ${{ github.event.inputs.source_repo }}
+          SYNC_MODE: ${{ github.event.inputs.sync_mode }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if git diff --quiet; then
-            echo "没有检测到 Git 差异"
+          git add ScriptSceneData Scripts Server 2>/dev/null || true
+          
+          echo "=== Git 状态 ==="
+          git status
+
+          if git diff --cached --quiet; then
+            echo "ℹ️ 没有新的文件需要提交（可能已是最新状态）"
             exit 0
           fi
 
-          git add -A
-          git commit -m "chore: sync from $SOURCE_REPO"
-          git push origin HEAD
+          SYNC_MODE_TEXT=$([[ "$SYNC_MODE" == "mirror" ]] && echo "mirror" || echo "update")
+          git commit -m "chore: sync resources from $SOURCE_REPO ($SYNC_MODE_TEXT)"
+          git push origin main
+          echo "✅ 推送成功"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## 📊 同步总结" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 项目 | 值 |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|---|" >> $GITHUB_STEP_SUMMARY
+          echo "| 源仓库 | ${{ github.event.inputs.source_repo }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 源分支 | ${{ github.event.inputs.source_branch }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 同步模式 | ${{ github.event.inputs.sync_mode }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 本地同步结果" >> $GITHUB_STEP_SUMMARY
+          for folder in ScriptSceneData Scripts Server; do
+            if [ -d "$folder" ]; then
+              count=$(find "$folder" -type f | wc -l)
+              echo "- **$folder**: ✅ $count 文件" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- **$folder**: ❌ 不存在" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
