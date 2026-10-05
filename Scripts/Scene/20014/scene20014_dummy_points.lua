@@ -1,0 +1,4 @@
+-- dumped by Mr.xks
+dummy_points = {
+    ["M 0001"] = { pos = { x = 186.054, y = 50.516, z = 291.466 }, rot = { x = 0.0, y = 34.74, z = 0.0 } }
+}

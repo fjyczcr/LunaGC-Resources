@@ -1,0 +1,5 @@
+-- dumped by Mr.xks
+dummy_points = {
+    Q1800017daiyin = { pos = { x = -150.177, y = 18.016, z = 43.32 }, rot = { x = 0.0, y = 0.0, z = 0.0 } },
+    Q1800017paimon = { pos = { x = -151.288, y = 18.016, z = 45.024 }, rot = { x = 0.0, y = 117.293, z = 0.0 } }
+}

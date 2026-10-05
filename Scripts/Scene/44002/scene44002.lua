@@ -1,0 +1,27 @@
+-- dumped by Mr.xks
+scene_config = {
+    begin_pos = { x = -2325.0, z = -1646.1 },
+    size = { x = 5799.9, z = 5191.3 },
+    born_pos = { x = 337.917, y = -32.89, z = 526.59 },
+    born_rot = { x = 0.0, y = 0.0, z = 0.0 },
+    born_point_list = {
+        { pos = { x = 343.209, y = -27.85, z = 480.252 }, rot = { x = 0.0, y = 180.0, z = 0.0 } },
+        { pos = { x = 344.868, y = -27.85, z = 482.272 }, rot = { x = 0.0, y = 180.0, z = 0.0 } },
+        { pos = { x = 341.477, y = -27.85, z = 482.199 }, rot = { x = 0.0, y = 180.0, z = 0.0 } },
+        { pos = { x = 343.066, y = -27.85, z = 484.237 }, rot = { x = 0.0, y = 180.0, z = 0.0 } }
+    },
+    die_y = -35,
+    city_id = 1,
+    vision_anchor = { x = -2325.0, z = -1646.1 }
+}
+
+blocks = {
+    44002
+}
+
+block_rects = {
+    { min = { x = -2325.0, z = -1646.1 }, max = { x = 3474.9, z = 3545.2 } }
+}
+
+dummy_points = {}
+routes_config = {}

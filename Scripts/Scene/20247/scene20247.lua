@@ -1,0 +1,24 @@
+-- dumped by Mr.xks
+scene_config = {
+    begin_pos = { x = -262.1, z = -226.7 },
+    size = { x = 974.9, z = 893.7 },
+    born_pos = { x = 420.43, y = 102.902, z = 380.147 },
+    born_rot = { x = 0.0, y = 269.983, z = 0.0 },
+    die_y = -20,
+    city_id = 6,
+    vision_anchor = { x = -1000.0, z = -1000.0 }
+}
+
+blocks = {
+    20247
+}
+
+block_rects = {
+    { min = { x = -262.1, z = -226.7 }, max = { x = 712.8, z = 667.0 } }
+}
+
+dummy_points = {
+    "dummy_points"
+}
+
+routes_config = {}

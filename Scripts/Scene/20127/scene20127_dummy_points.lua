@@ -1,0 +1,4 @@
+-- dumped by Mr.xks
+dummy_points = {
+    Q102802_N1030 = { pos = { x = 12.003, y = 49.106, z = 41.316 }, rot = { x = 0.0, y = 152.537, z = 0.0 } }
+}
