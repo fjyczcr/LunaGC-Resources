@@ -1,0 +1,131 @@
+name: Sync Resources from AstaPS-Resource
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_repo:
+        description: "Source repository"
+        required: true
+        default: "MeChen618/AstaPS-Resource"
+      source_branch:
+        description: "Source branch"
+        required: true
+        default: "main"
+      sync_mode:
+        description: "Sync mode (mirror=完全同步包括删除 / update=仅添加更新)"
+        required: true
+        default: "mirror"
+        type: choice
+        options:
+          - mirror
+          - update
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Clone source repo
+        env:
+          SOURCE_REPO: ${{ github.event.inputs.source_repo }}
+          SOURCE_BRANCH: ${{ github.event.inputs.source_branch }}
+        run: |
+          git clone --depth 1 --branch "$SOURCE_BRANCH" "https://github.com/$SOURCE_REPO.git" /tmp/source_repo
+
+      - name: Sync folders (mirror mode - complete sync with deletions)
+        if: github.event.inputs.sync_mode == 'mirror'
+        run: |
+          set -e
+          for folder in ScriptSceneData Scripts Server; do
+            echo "========================================="
+            echo "处理文件夹: $folder (镜像模式)"
+            echo "========================================="
+
+            if [ -d "/tmp/source_repo/$folder" ]; then
+              echo "✓ 源仓库中找到 $folder，执行镜像同步..."
+              if [ -d "$folder" ]; then
+                echo "  • 删除本地旧版本: $folder"
+                rm -rf "$folder"
+              fi
+              echo "  • 复制新文件夹: $folder"
+              cp -R "/tmp/source_repo/$folder" .
+              echo "✓ $folder 镜像同步完成"
+            else
+              echo "⚠ 源仓库中未找到文件夹: $folder"
+              if [ -d "$folder" ]; then
+                echo "  • 本地存在但源不存在，删除: $folder"
+                rm -rf "$folder"
+              fi
+            fi
+            echo ""
+          done
+
+      - name: Sync folders (update mode - only add/update, no deletions)
+        if: github.event.inputs.sync_mode == 'update'
+        run: |
+          set -e
+          for folder in ScriptSceneData Scripts Server; do
+            echo "========================================="
+            echo "处理文件夹: $folder (更新模式)"
+            echo "========================================="
+
+            if [ -d "/tmp/source_repo/$folder" ]; then
+              echo "✓ 源仓库中找到 $folder，执行增量同步..."
+              mkdir -p "$folder"
+              echo "  • 更新文件: $folder"
+              cp -R "/tmp/source_repo/$folder"/* "$folder/"
+              echo "✓ $folder 增量同步完成"
+            else
+              echo "⚠ 源仓库中未找到文件夹: $folder (在更新模式下不会删除本地版本)"
+            fi
+            echo ""
+          done
+
+      - name: Commit and push if changed
+        env:
+          SOURCE_REPO: ${{ github.event.inputs.source_repo }}
+          SYNC_MODE: ${{ github.event.inputs.sync_mode }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "✓ 没有检测到更改"
+            exit 0
+          fi
+
+          git add -A ScriptSceneData Scripts Server 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "✓ 没有检测到更改"
+            exit 0
+          fi
+
+          SYNC_MODE_TEXT=$([[ "$SYNC_MODE" == "mirror" ]] && echo "镜像模式" || echo "更新模式")
+          git commit -m "chore: sync from $SOURCE_REPO ($SYNC_MODE_TEXT) [$(date -u +'%Y-%m-%d %H:%M:%S UTC')]"
+          git push origin HEAD
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## 同步完成" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 参数 | 值 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-----|" >> $GITHUB_STEP_SUMMARY
+          echo "| 源仓库 | ${{ github.event.inputs.source_repo }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 源分支 | ${{ github.event.inputs.source_branch }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 同步模式 | ${{ github.event.inputs.sync_mode }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ github.event.inputs.sync_mode }}" = "mirror" ]; then
+            echo "**镜像模式**: 完全同步源仓库状态（包括删除文件）" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**更新模式**: 仅添加/更新文件（不删除本地多余文件）" >> $GITHUB_STEP_SUMMARY
+          fi
