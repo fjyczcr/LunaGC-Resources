@@ -11,7 +11,7 @@ local base_info = {
 
 -- 怪物
 monsters = {
-	{ config_id = 1001, monster_id = 29010102, pos = { x = 0.000, y = -30.000, z = 0.000 }, rot = { x = 0.000, y = 8.860, z = 0.000 }, level = 1, title_id = 103, special_name_id = 2 }
+	{ config_id = 1001, monster_id = 29010102, pos = { x = 0.000, y = -30.000, z = 0.000 }, rot = { x = 0.000, y = 8.860, z = 0.000 }, level = 1, title_id = 103, special_name_id = 2010102 }
 }
 
 -- NPC

@@ -34,7 +34,7 @@ gadgets = {
 	{ config_id = 922006, gadget_id = 70710160, pos = { x = -220.523, y = 186.465, z = 938.395 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 32, area_id = 8 },
 	{ config_id = 922008, gadget_id = 70710141, pos = { x = -220.531, y = 186.800, z = 938.423 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 32, area_id = 8 },
 	{ config_id = 922009, gadget_id = 70500000, pos = { x = -220.690, y = 187.011, z = 939.392 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 32, point_type = 2004, area_id = 8 },
-	{ config_id = 922011, gadget_id = 70710113, pos = { x = -214.045, y = 186.007, z = 929.575 }, rot = { x = 0.000, y = 274.170, z = 0.000 }, level = 32, interact_id = 11, area_id = 8 },
+	{ config_id = 922011, gadget_id = 70710113, pos = { x = -214.045, y = 186.007, z = 929.575 }, rot = { x = 0.000, y = 274.170, z = 0.000 }, level = 32, interact_id = 11, persistent = true, area_id = 8 },
 	{ config_id = 922013, gadget_id = 70500000, pos = { x = -220.041, y = 186.742, z = 937.429 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 32, point_type = 2004, area_id = 8 }
 }
 
@@ -101,6 +101,15 @@ suites = {
 		triggers = { "GADGET_STATE_CHANGE_922012", "GADGET_CREATE_922014" },
 		rand_weight = 100,
 		ban_refresh = true
+	},
+	{
+		-- suite_id = 4: retain the cage and materials after the guards are defeated.
+		monsters = { },
+		gadgets = { 922004, 922005, 922006, 922008, 922009, 922011, 922013 },
+		regions = { },
+		triggers = { "GADGET_STATE_CHANGE_922012", "GADGET_CREATE_922014" },
+		rand_weight = 100,
+		ban_refresh = true
 	}
 }
 
@@ -132,7 +141,7 @@ end
 
 -- 触发条件
 function condition_EVENT_GADGET_CREATE_922014(context, evt)
-	if 284008 ~= evt.param1 then 
+	if 922011 ~= evt.param1 then
 		return false
 	end
 	local state = ScriptLib.GetGadgetStateByConfigId(context, 0, evt.param1)

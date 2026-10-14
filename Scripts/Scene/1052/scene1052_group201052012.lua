@@ -48,7 +48,7 @@ variables = {
 
 -- 初始化时创建
 init_config = {
-	suite = 1,
+	suite = 2,
 	end_suite = 0,
 	rand_suite = false
 }
@@ -68,6 +68,10 @@ suites = {
 		regions = { },
 		triggers = { "GROUP_REFRESH_12001", "TIMER_EVENT_12002", "TIMER_EVENT_12003", "TIMER_EVENT_12004", "TIMER_EVENT_12005", "TIMER_EVENT_12006", "TIMER_EVENT_12007" },
 		rand_weight = 100
+	},
+	{
+		-- Idle until the player requests this round's demonstration.
+		monsters = { }, gadgets = { }, regions = { }, triggers = { }, rand_weight = 100
 	}
 }
 

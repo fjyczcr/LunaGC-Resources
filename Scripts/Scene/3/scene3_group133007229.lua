@@ -148,6 +148,11 @@ function action_EVENT_GADGET_STATE_CHANGE_297(context, evt)
 		-- 光柱触发信息令封印激活玩家身上的子弹
 		if evt.param1 == GadgetState.GearStart then
 			local cur_state = ScriptLib.GetGadgetStateByConfigId(context, defs.group_id, defs.seal_id)
+			-- Another pickup callback may already have set the transient signal state.
+			-- Restore the committed seal state rather than latching ChestTrap.
+			if cur_state == GadgetState.ChestTrap then
+				cur_state = ScriptLib.GetGadgetStateByConfigId(context, defs.group_id, defs.seal_model)
+			end
 			ScriptLib.SetGroupGadgetStateByConfigId(context, defs.group_id, defs.seal_id, GadgetState.ChestTrap)
 			ScriptLib.SetGroupGadgetStateByConfigId(context, defs.group_id, defs.seal_id, cur_state)
 			-- 记录光柱触碰状况
@@ -195,7 +200,9 @@ function action_EVENT_GADGET_STATE_CHANGE_297(context, evt)
 		end
 		return 0
 	else
-		return -1
+		-- Other gadgets, including the seal model, also emit state changes.
+		-- Ignore them successfully so this repeating trigger stays registered.
+		return 0
 	end
 end
 

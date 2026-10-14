@@ -28,6 +28,7 @@ regions = {
 
 -- 触发器
 triggers = {
+	{ config_id = 1377020, name = "GROUP_LOAD_377020", event = EventType.EVENT_GROUP_LOAD, source = "", condition = "", action = "action_EVENT_GROUP_LOAD_377020", trigger_count = 0 },
 	{ config_id = 1377002, name = "QUEST_FINISH_377002", event = EventType.EVENT_QUEST_FINISH, source = "101104", condition = "condition_EVENT_QUEST_FINISH_377002", action = "action_EVENT_QUEST_FINISH_377002", trigger_count = 0 },
 	{ config_id = 1377003, name = "GADGET_STATE_CHANGE_377003", event = EventType.EVENT_GADGET_STATE_CHANGE, source = "", condition = "condition_EVENT_GADGET_STATE_CHANGE_377003", action = "action_EVENT_GADGET_STATE_CHANGE_377003", trigger_count = 0 },
 	{ config_id = 1377005, name = "GADGET_STATE_CHANGE_377005", event = EventType.EVENT_GADGET_STATE_CHANGE, source = "", condition = "condition_EVENT_GADGET_STATE_CHANGE_377005", action = "action_EVENT_GADGET_STATE_CHANGE_377005", trigger_count = 0 },
@@ -77,7 +78,7 @@ suites = {
 		monsters = { },
 		gadgets = { 377001 },
 		regions = { },
-		triggers = { "QUEST_FINISH_377002", "GADGET_STATE_CHANGE_377003", "GADGET_STATE_CHANGE_377005", "GADGET_STATE_CHANGE_377007", "GADGET_STATE_CHANGE_377008", "GADGET_STATE_CHANGE_377009", "GADGET_STATE_CHANGE_377010", "GADGET_STATE_CHANGE_377011", "GADGET_STATE_CHANGE_377012", "GADGET_STATE_CHANGE_377013", "GADGET_STATE_CHANGE_377014", "GADGET_STATE_CHANGE_377015", "GADGET_STATE_CHANGE_377016", "GADGET_STATE_CHANGE_377017", "GADGET_STATE_CHANGE_377018", "GADGET_STATE_CHANGE_377019" },
+		triggers = { "GROUP_LOAD_377020", "QUEST_FINISH_377002", "GADGET_STATE_CHANGE_377003", "GADGET_STATE_CHANGE_377005", "GADGET_STATE_CHANGE_377007", "GADGET_STATE_CHANGE_377008", "GADGET_STATE_CHANGE_377009", "GADGET_STATE_CHANGE_377010", "GADGET_STATE_CHANGE_377011", "GADGET_STATE_CHANGE_377012", "GADGET_STATE_CHANGE_377013", "GADGET_STATE_CHANGE_377014", "GADGET_STATE_CHANGE_377015", "GADGET_STATE_CHANGE_377016", "GADGET_STATE_CHANGE_377017", "GADGET_STATE_CHANGE_377018", "GADGET_STATE_CHANGE_377019" },
 		rand_weight = 100
 	}
 }
@@ -87,6 +88,36 @@ suites = {
 -- 触发器
 -- 
 --================================================================
+
+-- Recover only an active cooking sequence, using the native hidden stage quests.
+function action_EVENT_GROUP_LOAD_377020(context, evt)
+	local uid_list = ScriptLib.GetSceneUidList(context)
+	if uid_list == nil or #uid_list == 0 then return 0 end
+	local avatar_eid = ScriptLib.GetAvatarEntityIdByUid(context, uid_list[1])
+	if avatar_eid == nil or avatar_eid == 0 then return 0 end
+	if ScriptLib.GetQuestState(context, avatar_eid, 101104) ~= 3 or
+	   ScriptLib.GetQuestState(context, avatar_eid, 101127) ~= 2 then return 0 end
+	local state = GadgetState.GearAction2
+	if ScriptLib.GetQuestState(context, avatar_eid, 101126) == 3 then
+		state = GadgetState.GearStop
+	elseif ScriptLib.GetQuestState(context, avatar_eid, 101125) == 3 then
+		state = GadgetState.Action02
+	elseif ScriptLib.GetQuestState(context, avatar_eid, 101124) == 3 then
+		state = GadgetState.GearStart
+	elseif ScriptLib.GetQuestState(context, avatar_eid, 101123) == 3 then
+		state = GadgetState.Action01
+	end
+	if ScriptLib.GetGadgetStateByConfigId(context, 133001377, 377001) ~= state then
+		return ScriptLib.SetGadgetStateByConfigId(context, 377001, state)
+	end
+	-- An already restored protection state still needs its remaining native monster wave.
+	if state == GadgetState.Action01 then
+		return ScriptLib.AddExtraGroupSuite(context, 133001378, 2)
+	elseif state == GadgetState.Action02 then
+		return ScriptLib.AddExtraGroupSuite(context, 133001378, 3)
+	end
+	return 0
+end
 
 -- 触发条件
 function condition_EVENT_QUEST_FINISH_377002(context, evt)

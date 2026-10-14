@@ -8476,6 +8476,10 @@
     "serverController": "SetGadgetState"
   },
   {
+    "gadgetId": 71700106,
+    "serverController": "LiyueChargePot"
+  },
+  {
     "gadgetId": 73051002,
     "serverController": "SetGadgetState"
   }
